@@ -24,6 +24,6 @@ To run the Airline Reservation Builder, you need to have the following software 
 <li>Set up the database:
 <ol>
   <li>Create a new MySQL database for the reservation system.</li>
-<li>Configure the database connection and update the connection parameters (URL, username, password) to match your database configuration (in services tab (Ctrl+F5))</li>
+<li>Configure the database connection and update the connection parameters (URL, username, password) to match your database configuration (in services tab (Ctrl+5))</li>
 </ol>
 <li>Run the project in your IDE.</li>
