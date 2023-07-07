@@ -168,9 +168,13 @@ public class Frame1 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-Login obj= new Login();// obj created for class Login()
+//Login obj= new Login();// obj created for class Login()
+//	obj.setVisible(true); // Open the Second.java window
+//	dispose(); // Close the Frame1.java window
+        CheckFlights obj= new CheckFlights();// obj created for class Login()
 	obj.setVisible(true); // Open the Second.java window
 	dispose(); // Close the Frame1.java window        
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

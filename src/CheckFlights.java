@@ -1,3 +1,6 @@
+import java.sql.*;
+import javax.swing.table.DefaultTableModel;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -14,6 +17,7 @@ public class CheckFlights extends javax.swing.JFrame {
      */
     public CheckFlights() {
         initComponents();
+        showData();
     }
 
     /**
@@ -27,7 +31,7 @@ public class CheckFlights extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tbl = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(800, 470));
@@ -38,9 +42,9 @@ public class CheckFlights extends javax.swing.JFrame {
 
         jScrollPane1.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
 
-        jTable1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jTable1.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tbl.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        tbl.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
+        tbl.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -67,15 +71,22 @@ public class CheckFlights extends javax.swing.JFrame {
                 "From", "To", "Date", "Departure Time", "Ticket Price"
             }
         ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+            };
             boolean[] canEdit = new boolean [] {
                 false, false, false, false, false
             };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tbl);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -141,6 +152,27 @@ public class CheckFlights extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tbl;
     // End of variables declaration//GEN-END:variables
+
+    private void showData() {
+    try{
+        Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/airline","root","riya");
+        Statement stmt=con.createStatement();
+        String s="Select * from flightData";
+        ResultSet rs=stmt.executeQuery(s);
+        while(rs.next()){
+            String From=String.valueOf(rs.getString("FromCity"));
+            String To=String.valueOf(rs.getString("ToCity"));
+            String Date=String.valueOf(rs.getString("DepartureDate"));
+            String Time=String.valueOf(rs.getString("DepartureTime"));
+            String Price=String.valueOf(rs.getString("Price"));
+            String tbData[]={From,To,Date,Time,Price};
+            DefaultTableModel tblModel= (DefaultTableModel) tbl.getModel();
+            tblModel.addRow(tbData);
+        }   
+    }catch(Exception error){
+         System.out.println(error.getMessage());
+    }
+    }
 }
