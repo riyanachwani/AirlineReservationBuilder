@@ -17,6 +17,7 @@ To run the Airline Reservation Builder, you need to have the following software 
 
 ## `Tech Stack Used`
 <li>Java</li>
+<li>MySQL</li>
 
 ## `Installation`
 <li>Clone the repository: https://github.com/riyanachwani/AirlineReservationBuilder.git </li>
