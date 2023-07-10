@@ -299,7 +299,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI Semibold" size="18" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="From"/>
+            <Property name="text" type="java.lang.String" value="Departure Date"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JComboBox" name="cb1">

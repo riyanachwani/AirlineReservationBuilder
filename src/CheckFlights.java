@@ -125,7 +125,7 @@ public class CheckFlights extends javax.swing.JFrame {
         jTextField3.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
 
         jLabel6.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
-        jLabel6.setText("From");
+        jLabel6.setText("Departure Date");
 
         cb1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
