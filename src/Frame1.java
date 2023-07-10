@@ -172,7 +172,7 @@ public class Frame1 extends javax.swing.JFrame {
 //	obj.setVisible(true); // Open the Second.java window
 //	dispose(); // Close the Frame1.java window
         CheckFlights obj= new CheckFlights();// obj created for class Login()
-	obj.setVisible(true); // Open the Second.java window
+	obj.setVisible(true); // Open the Login.java window
 	dispose(); // Close the Frame1.java window        
 
     }//GEN-LAST:event_jButton2ActionPerformed
