@@ -51,6 +51,7 @@ public class CheckFlights extends javax.swing.JFrame {
 
         jScrollPane1.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
 
+        tbl.setBackground(new java.awt.Color(204, 204, 255));
         tbl.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         tbl.setFont(new java.awt.Font("Segoe UI Semibold", 1, 12)); // NOI18N
         tbl.setModel(new javax.swing.table.DefaultTableModel(
@@ -96,10 +97,12 @@ public class CheckFlights extends javax.swing.JFrame {
         jLabel1.setText("Airline Reservation System");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, 430, 60));
 
-        jPanel1.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
         jPanel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
 
-        jButton1.setText("SHOW");
+        jButton1.setBackground(new java.awt.Color(102, 102, 102));
+        jButton1.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
+        jButton1.setText("Show Details");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -107,21 +110,36 @@ public class CheckFlights extends javax.swing.JFrame {
         });
 
         to.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
+        to.setForeground(new java.awt.Color(204, 204, 204));
+        to.setText("Bhopal");
+        to.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                toMouseClicked(evt);
+            }
+        });
 
         from.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
+        from.setForeground(new java.awt.Color(204, 204, 204));
+        from.setText("Indore");
+        from.setToolTipText("");
+        from.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                fromMouseClicked(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
         jLabel2.setLabelFor(to);
-        jLabel2.setText("To");
+        jLabel2.setText("To(City)");
 
         jLabel3.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
-        jLabel3.setText("From");
+        jLabel3.setText("From(City)");
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/illustrations/arrow.jpg"))); // NOI18N
         jLabel4.setToolTipText("");
 
         jLabel5.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
-        jLabel5.setText("From");
+        jLabel5.setText("Class");
 
         dd.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
         dd.setForeground(new java.awt.Color(204, 204, 204));
@@ -205,7 +223,7 @@ public class CheckFlights extends javax.swing.JFrame {
                 .addContainerGap(54, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(66, 84, -1, -1));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 80, -1, -1));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/illustrations/background.jpeg"))); // NOI18N
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 520));
@@ -246,6 +264,18 @@ jDialog1.setVisible(true);
     dd.setForeground(Color.black);
         // TODO add your handling code here:
     }//GEN-LAST:event_ddMouseClicked
+
+    private void fromMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fromMouseClicked
+    from.setText("");
+    from.setForeground(Color.black);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fromMouseClicked
+
+    private void toMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_toMouseClicked
+    to.setText("");
+    to.setForeground(Color.black);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_toMouseClicked
 
     /**
      * @param args the command line arguments
