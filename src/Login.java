@@ -7,7 +7,6 @@ import javax.swing.JOptionPane;
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-
 /**
  *
  * @author riyan
@@ -121,32 +120,27 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-String e=email.getText().toString();
-char[] p=pswd.getPassword();
-if(e.isEmpty()||p.length == 0){
-    JOptionPane.showMessageDialog(this, "Enter all the field correctly correctly");
-}
-else{
-        try{
-        Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/airline","root","riya");
-        Statement stmt=con.createStatement();
-        ResultSet rs=stmt.executeQuery("Select email,password from signup where email='"+ e +"'and password='"+p+"'");
-            System.out.println(rs);
-            System.out.println(rs.getString("password"));
-            
-        if(rs.next()){
-        JOptionPane.showMessageDialog(this, "Logged in successfully");
-        CheckFlights obj= new CheckFlights();
-	obj.setVisible(true);
-	dispose();
+        String e = email.getText().toString();
+        char[] p = pswd.getPassword();
+        if (e.isEmpty() || p.length == 0) {
+            JOptionPane.showMessageDialog(this, "Enter all the field correctly correctly");
+        } else {
+            try {
+                Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/airline", "root", "riya");
+                Statement stmt = con.createStatement();
+                ResultSet rs = stmt.executeQuery("Select email,password from signup where email='" + e + "'and password='" + p + "'");
+                if (rs.next()) {
+                    System.out.println(rs);
+                    System.out.println(rs.getString("password"));
+                    JOptionPane.showMessageDialog(this, "Logged in successfully");
+                    CheckFlights obj = new CheckFlights();
+                    obj.setVisible(true);
+                    dispose();
+                }
+            } catch (SQLException error) {
+                System.out.println(error.getMessage());
+            }
         }
-        else{
-        JOptionPane.showMessageDialog(this, "Wrong email or password");    
-        }        
-}catch(SQLException error){
-    System.out.println(error.getMessage());
-}
-}
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
