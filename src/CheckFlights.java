@@ -1,3 +1,4 @@
+
 import java.awt.Color;
 import java.sql.*;
 import javax.swing.table.DefaultTableModel;
@@ -6,7 +7,6 @@ import javax.swing.table.DefaultTableModel;
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-
 /**
  *
  * @author riyan
@@ -97,10 +97,10 @@ public class CheckFlights extends javax.swing.JFrame {
         jLabel1.setText("Airline Reservation System");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, 430, 60));
 
-        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.setBackground(new java.awt.Color(204, 204, 255));
         jPanel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
 
-        jButton1.setBackground(new java.awt.Color(102, 102, 102));
+        jButton1.setBackground(new java.awt.Color(153, 153, 255));
         jButton1.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
         jButton1.setText("Show Details");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -232,26 +232,26 @@ public class CheckFlights extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-jDialog1.setVisible(true);
+        jDialog1.setVisible(true);
 
-        try{
-        Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/airline","root","riya");
-        Statement stmt=con.createStatement();
-        String s="Select * from flightData";
-        ResultSet rs=stmt.executeQuery(s);
-        while(rs.next()){
-            String From=String.valueOf(rs.getString("FromCity"));
-            String To=String.valueOf(rs.getString("ToCity"));
-            String Date=String.valueOf(rs.getString("DepartureDate"));
-            String Time=String.valueOf(rs.getString("DepartureTime"));
-            String Price=String.valueOf(rs.getString("Price"));
-            String tbData[]={From,To,Date,Time,Price};
-            DefaultTableModel tblModel= (DefaultTableModel) tbl.getModel();
-            tblModel.addRow(tbData);
-        }   
-    }catch(Exception error){
-         System.out.println(error.getMessage());
-    }
+        try {
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/airline", "root", "riya");
+            Statement stmt = con.createStatement();
+            String s = "Select * from flightData";
+            ResultSet rs = stmt.executeQuery(s);
+            while (rs.next()) {
+                String From = String.valueOf(rs.getString("FromCity"));
+                String To = String.valueOf(rs.getString("ToCity"));
+                String Date = String.valueOf(rs.getString("DepartureDate"));
+                String Time = String.valueOf(rs.getString("DepartureTime"));
+                String Price = String.valueOf(rs.getString("Price"));
+                String tbData[] = {From, To, Date, Time, Price};
+                DefaultTableModel tblModel = (DefaultTableModel) tbl.getModel();
+                tblModel.addRow(tbData);
+            }
+        } catch (Exception error) {
+            System.out.println(error.getMessage());
+        }
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -260,20 +260,20 @@ jDialog1.setVisible(true);
     }//GEN-LAST:event_ddActionPerformed
 
     private void ddMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ddMouseClicked
-    dd.setText("");
-    dd.setForeground(Color.black);
+        dd.setText("");
+        dd.setForeground(Color.black);
         // TODO add your handling code here:
     }//GEN-LAST:event_ddMouseClicked
 
     private void fromMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fromMouseClicked
-    from.setText("");
-    from.setForeground(Color.black);
+        from.setText("");
+        from.setForeground(Color.black);
         // TODO add your handling code here:
     }//GEN-LAST:event_fromMouseClicked
 
     private void toMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_toMouseClicked
-    to.setText("");
-    to.setForeground(Color.black);
+        to.setText("");
+        to.setForeground(Color.black);
         // TODO add your handling code here:
     }//GEN-LAST:event_toMouseClicked
 
