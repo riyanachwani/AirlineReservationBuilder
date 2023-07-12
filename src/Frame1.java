@@ -7,7 +7,6 @@ import javax.swing.JOptionPane;
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-
 /**
  *
  * @author riyan
@@ -167,42 +166,49 @@ public class Frame1 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-Login obj= new Login();// obj created for class Login()
-	obj.setVisible(true); // Open the Second.java window
-	dispose(); // Close the Frame1.java window
+        Login obj = new Login();// obj created for class Login()
+        obj.setVisible(true); // Open the Second.java window
+        dispose(); // Close the Frame1.java window
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-String n=name.getText().toString();
-String e=email.getText().toString();
-char[] p=pswd.getPassword();
-char[] cp=confirm.getPassword();
-System.out.println(p);
-if(n.isEmpty()||e.isEmpty()||p.length == 0||cp.length == 0){
-    JOptionPane.showMessageDialog(this, "Enter all the field correctly correctly");
-}
-else{
-    if(Arrays.equals(p, cp)){
-        try{
-        Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/airline","root","riya");
-        Statement stmt=con.createStatement();
-        int i=stmt.executeUpdate("Insert into signup(name,email,password,confirmpassword) values('"+ n + "','"+ e + "','"+ p +"','" + cp +"')");
-System.out.println(p);
-        
-        if(i>0){
-        JOptionPane.showMessageDialog(this, "Signed up successfully");
-        Login obj= new Login();// obj created for class Login()
-	obj.setVisible(true); // Open the Second.java window
-	dispose(); // Close the Frame1.java window        
+        String n = name.getText().toString();
+        String e = email.getText().toString();
+        char[] p1 = pswd.getPassword();
+        char[] cp1 = confirm.getPassword();
+
+        String p = new String(p1);
+        String cp = new String(cp1);
+
+        if (n.isEmpty() || e.isEmpty() || p.isEmpty() || cp.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Enter all the field correctly correctly");
+        } else {
+            if (p.equals(cp)) {
+                try {
+                    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/airline", "root", "riya");
+                    Statement stmt = con.createStatement();
+                    ResultSet rs = stmt.executeQuery("Select email,password from signup where email='" + e + "'");
+
+                    if (rs.next()) {
+                        JOptionPane.showMessageDialog(this, "Such id already exists. Enter a unique id");
+                    } else {
+                        int i = stmt.executeUpdate("Insert into signup(name,email,password,confirmpassword) values('" + n + "','" + e + "','" + p + "','" + cp + "')");
+                        System.out.println(e + p);
+
+                        if (i > 0) {
+                            JOptionPane.showMessageDialog(this, "Signed up successfully");
+                            Login obj = new Login();// obj created for class Login()
+                            obj.setVisible(true); // Open the Second.java window
+                            dispose(); // Close the Frame1.java window        
+                        }
+                    }
+                } catch (SQLException error) {
+                    System.out.println(error.getMessage());
+                }
+            } else {
+                JOptionPane.showMessageDialog(this, "Password and Re-entered password are not same");
+            }
         }
-}catch(SQLException error){
-    System.out.println(error.getMessage());
-}
-}
-else{
-   JOptionPane.showMessageDialog(this, "Password and Re-entered password are not same");
- }
-}
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
