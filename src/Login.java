@@ -121,21 +121,24 @@ public class Login extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         String e = email.getText().toString();
-        char[] p = pswd.getPassword();
-        if (e.isEmpty() || p.length == 0) {
+        char[] p1 = pswd.getPassword();
+        String p = new String(p1);
+
+        if (e.isEmpty() || p.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Enter all the field correctly correctly");
         } else {
             try {
                 Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/airline", "root", "riya");
                 Statement stmt = con.createStatement();
-                ResultSet rs = stmt.executeQuery("Select email,password from signup where email='" + e + "'and password='" + p + "'");
+                ResultSet rs = stmt.executeQuery("Select email,password from signup where email='" + e + "'and password='" + p + "';");
+
                 if (rs.next()) {
-                    System.out.println(rs);
-                    System.out.println(rs.getString("password"));
                     JOptionPane.showMessageDialog(this, "Logged in successfully");
                     CheckFlights obj = new CheckFlights();
                     obj.setVisible(true);
                     dispose();
+                } else {
+                    JOptionPane.showMessageDialog(this, "NO");
                 }
             } catch (SQLException error) {
                 System.out.println(error.getMessage());
