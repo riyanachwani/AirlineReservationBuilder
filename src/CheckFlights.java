@@ -77,6 +77,7 @@ public class CheckFlights extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tbl.setShowGrid(true);
         jScrollPane1.setViewportView(tbl);
 
         javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
