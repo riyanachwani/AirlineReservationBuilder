@@ -279,6 +279,8 @@ public class CheckFlights extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         jDialog1.setVisible(true);
+        DefaultTableModel tblModel = (DefaultTableModel) tbl.getModel();
+        tblModel.setRowCount(0);
         String f = from.getText().toString();
         String t = to.getText().toString();
         String d = departuredate.getText().toString();
@@ -296,7 +298,6 @@ public class CheckFlights extends javax.swing.JFrame {
                 String Time = String.valueOf(rs.getString("DepartureTime"));
                 String Price = String.valueOf(rs.getString("Price"));
                 String tbData[] = {From, To, Date, Time, Price};
-                DefaultTableModel tblModel = (DefaultTableModel) tbl.getModel();
                 tblModel.addRow(tbData);
             }
         } catch (Exception error) {
@@ -304,39 +305,39 @@ public class CheckFlights extends javax.swing.JFrame {
         }
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
-
+    
     private void departuredateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_departuredateActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_departuredateActionPerformed
-
+    
     private void departuredateMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_departuredateMouseClicked
         departuredate.setText("");
         departuredate.setForeground(Color.black);
         // TODO add your handling code here:
     }//GEN-LAST:event_departuredateMouseClicked
-
+    
     private void fromMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fromMouseClicked
         from.setText("");
         from.setForeground(Color.black);
         // TODO add your handling code here:
     }//GEN-LAST:event_fromMouseClicked
-
+    
     private void toMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_toMouseClicked
         to.setText("");
         to.setForeground(Color.black);
         // TODO add your handling code here:
     }//GEN-LAST:event_toMouseClicked
-
+    
     private void departuretimeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_departuretimeMouseClicked
         departuretime.setText("");
         departuretime.setForeground(Color.black);
         // TODO add your handling code here:
     }//GEN-LAST:event_departuretimeMouseClicked
-
+    
     private void departuretimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_departuretimeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_departuretimeActionPerformed
-
+    
     private void cb1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cb1ActionPerformed
