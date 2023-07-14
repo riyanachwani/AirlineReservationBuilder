@@ -79,8 +79,15 @@ public class CheckFlights extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tbl.setColumnSelectionAllowed(true);
         tbl.setShowGrid(true);
+        tbl.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tbl);
+        tbl.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
 
         javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
         jDialog1.getContentPane().setLayout(jDialog1Layout);
@@ -95,7 +102,6 @@ public class CheckFlights extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(814, 528));
-        setPreferredSize(new java.awt.Dimension(814, 528));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
@@ -305,42 +311,52 @@ public class CheckFlights extends javax.swing.JFrame {
         }
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
-    
+
     private void departuredateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_departuredateActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_departuredateActionPerformed
-    
+
     private void departuredateMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_departuredateMouseClicked
         departuredate.setText("");
         departuredate.setForeground(Color.black);
         // TODO add your handling code here:
     }//GEN-LAST:event_departuredateMouseClicked
-    
+
     private void fromMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fromMouseClicked
         from.setText("");
         from.setForeground(Color.black);
         // TODO add your handling code here:
     }//GEN-LAST:event_fromMouseClicked
-    
+
     private void toMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_toMouseClicked
         to.setText("");
         to.setForeground(Color.black);
         // TODO add your handling code here:
     }//GEN-LAST:event_toMouseClicked
-    
+
     private void departuretimeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_departuretimeMouseClicked
         departuretime.setText("");
         departuretime.setForeground(Color.black);
         // TODO add your handling code here:
     }//GEN-LAST:event_departuretimeMouseClicked
-    
+
     private void departuretimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_departuretimeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_departuretimeActionPerformed
-    
+
     private void cb1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cb1ActionPerformed
+
+    private void tblMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblMouseClicked
+        Booking obj = new Booking();
+        int index = tbl.getSelectedRow();
+        DefaultTableModel tblModel = (DefaultTableModel) tbl.getModel();
+        String f1 = tblModel.getValueAt(index, 0).toString();
+        obj.setVisible(true);
+        obj.pack();
+        //obj.lbl.setText(f1);
+    }//GEN-LAST:event_tblMouseClicked
 
     /**
      * @param args the command line arguments
