@@ -33,6 +33,8 @@ public class CheckFlights extends javax.swing.JFrame {
         jDialog1 = new javax.swing.JDialog();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbl = new javax.swing.JTable();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel9 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
@@ -53,7 +55,7 @@ public class CheckFlights extends javax.swing.JFrame {
 
         jScrollPane1.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
 
-        tbl.setBackground(new java.awt.Color(204, 204, 255));
+        tbl.setBackground(new java.awt.Color(51, 153, 255));
         tbl.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         tbl.setFont(new java.awt.Font("Segoe UI Semibold", 1, 12)); // NOI18N
         tbl.setModel(new javax.swing.table.DefaultTableModel(
@@ -61,7 +63,7 @@ public class CheckFlights extends javax.swing.JFrame {
 
             },
             new String [] {
-                "From", "To", "Date", "Departure Time", "Ticket Price"
+                "<html><h2>From</h2><html>", "<html><h2>To</html></h2>", "<html><h2>Date</html></h2>", "<html><h2>Departure Time</html></h2>", "<html><h2>Ticket Price</html></h2>"
             }
         ) {
             Class[] types = new Class [] {
@@ -89,15 +91,42 @@ public class CheckFlights extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tbl);
         tbl.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
 
+        jPanel2.setBackground(new java.awt.Color(51, 153, 255));
+
+        jLabel9.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setText("<html><li>Click on the ticket row to book the ticket</li><li>Ticket Prices are listen above for the adults. Prices for infants and childen will be charged accordingly</li></html>");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
         javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
         jDialog1.getContentPane().setLayout(jDialog1Layout);
         jDialog1Layout.setHorizontalGroup(
             jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 711, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jDialog1Layout.setVerticalGroup(
             jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 471, Short.MAX_VALUE)
+            .addGroup(jDialog1Layout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 365, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -358,11 +387,14 @@ public class CheckFlights extends javax.swing.JFrame {
         String date = tblModel.getValueAt(index, 0).toString();
         String time = tblModel.getValueAt(index, 0).toString();
         String price = tblModel.getValueAt(index, 0).toString();
-        String c = tblModel.getValueAt(index, 0).toString();
+        String c = cb1.getSelectedItem().toString();
 
         obj.setVisible(true);
-        obj.pack();
         obj.lbl1.setText(from);
+        obj.lbl2.setText(to);
+        obj.lbl3.setText(date);
+        obj.lbl4.setText(time);
+        obj.lbl5.setText(c);
 
     }//GEN-LAST:event_tblMouseClicked
 
@@ -416,7 +448,9 @@ public class CheckFlights extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tbl;
     private javax.swing.JTextField to;
