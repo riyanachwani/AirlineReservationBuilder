@@ -123,7 +123,7 @@ public class CheckFlights extends javax.swing.JFrame {
 
         to.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
         to.setForeground(new java.awt.Color(204, 204, 204));
-        to.setText("Bhopal");
+        to.setText("Delhi");
         to.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 toMouseClicked(evt);
@@ -158,7 +158,7 @@ public class CheckFlights extends javax.swing.JFrame {
 
         departuredate.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
         departuredate.setForeground(new java.awt.Color(204, 204, 204));
-        departuredate.setText("2022-05-05");
+        departuredate.setText("2022-07-20");
         departuredate.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 departuredateMouseClicked(evt);
