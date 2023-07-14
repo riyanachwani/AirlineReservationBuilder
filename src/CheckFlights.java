@@ -303,6 +303,7 @@ public class CheckFlights extends javax.swing.JFrame {
                 String Date = String.valueOf(rs.getString("DepartureDate"));
                 String Time = String.valueOf(rs.getString("DepartureTime"));
                 String Price = String.valueOf(rs.getString("Price"));
+
                 String tbData[] = {From, To, Date, Time, Price};
                 tblModel.addRow(tbData);
             }
@@ -352,10 +353,17 @@ public class CheckFlights extends javax.swing.JFrame {
         Booking obj = new Booking();
         int index = tbl.getSelectedRow();
         DefaultTableModel tblModel = (DefaultTableModel) tbl.getModel();
-        String f1 = tblModel.getValueAt(index, 0).toString();
+        String from = tblModel.getValueAt(index, 0).toString();
+        String to = tblModel.getValueAt(index, 1).toString();
+        String date = tblModel.getValueAt(index, 0).toString();
+        String time = tblModel.getValueAt(index, 0).toString();
+        String price = tblModel.getValueAt(index, 0).toString();
+        String c = tblModel.getValueAt(index, 0).toString();
+
         obj.setVisible(true);
         obj.pack();
-        //obj.lbl.setText(f1);
+        obj.lbl1.setText(from);
+
     }//GEN-LAST:event_tblMouseClicked
 
     /**
