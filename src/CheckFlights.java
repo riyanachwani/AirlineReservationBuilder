@@ -395,6 +395,7 @@ public class CheckFlights extends javax.swing.JFrame {
         obj.lbl3.setText(date);
         obj.lbl4.setText(time);
         obj.lbl5.setText(c);
+        obj.lbl6.setText(price);
 
     }//GEN-LAST:event_tblMouseClicked
 
