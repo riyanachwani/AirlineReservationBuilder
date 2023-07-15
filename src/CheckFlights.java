@@ -384,9 +384,9 @@ public class CheckFlights extends javax.swing.JFrame {
         DefaultTableModel tblModel = (DefaultTableModel) tbl.getModel();
         String from = tblModel.getValueAt(index, 0).toString();
         String to = tblModel.getValueAt(index, 1).toString();
-        String date = tblModel.getValueAt(index, 0).toString();
-        String time = tblModel.getValueAt(index, 0).toString();
-        String price = tblModel.getValueAt(index, 0).toString();
+        String date = tblModel.getValueAt(index, 2).toString();
+        String time = tblModel.getValueAt(index, 3).toString();
+        String price = tblModel.getValueAt(index, 4).toString();
         String c = cb1.getSelectedItem().toString();
 
         obj.setVisible(true);
