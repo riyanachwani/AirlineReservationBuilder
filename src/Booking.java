@@ -395,17 +395,16 @@ public class Booking extends javax.swing.JFrame {
         int childcount = Integer.parseInt(child.getText());
         int infantcount = Integer.parseInt(infant.getText());
         if (option == JOptionPane.YES_OPTION) {
-            if (adultcount == 0) {
-                adultcount = 1;
+            if (adultcount != 0) {
+                total = total * adultcount;
             }
-            if (childcount == 0) {
-                childcount = 1;
+            if (childcount != 0) {
+                total = total - (1000 * childcount);
             }
-            if (infantcount == 0) {
-                infantcount = 1;
+            if (infantcount != 0) {
+                total = total - (2000 * childcount);
             }
-        } else {
-            // Dialog is automatically closed when "No" is selected
+            lbl6.setText("" + total);
         }
 // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
