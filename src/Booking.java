@@ -391,20 +391,24 @@ public class Booking extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         int option = JOptionPane.showConfirmDialog(null, "Do you want to perform a task?", "Confirm", JOptionPane.YES_NO_OPTION);
         int total = Integer.parseInt(lbl6.getText());
+        int sum;
         int adultcount = Integer.parseInt(adult.getText());
         int childcount = Integer.parseInt(child.getText());
         int infantcount = Integer.parseInt(infant.getText());
         if (option == JOptionPane.YES_OPTION) {
+            jDialog1.setVisible(false);
+            sum = total;
             if (adultcount != 0) {
                 total = total * adultcount;
             }
             if (childcount != 0) {
-                total = total - (1000 * childcount);
+                total = total + ((sum - 1000) * childcount);
             }
             if (infantcount != 0) {
-                total = total - (2000 * childcount);
+                total = total + ((sum - 2000) * childcount);
             }
-            lbl6.setText("" + total);
+            String t = String.valueOf(total);
+            lbl6.setText(t);
         }
 // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed

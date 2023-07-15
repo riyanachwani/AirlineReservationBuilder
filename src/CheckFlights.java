@@ -379,6 +379,7 @@ public class CheckFlights extends javax.swing.JFrame {
     }//GEN-LAST:event_cb1ActionPerformed
 
     private void tblMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblMouseClicked
+        jDialog1.setVisible(false);
         Booking obj = new Booking();
         int index = tbl.getSelectedRow();
         DefaultTableModel tblModel = (DefaultTableModel) tbl.getModel();
