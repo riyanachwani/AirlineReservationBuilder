@@ -11,7 +11,7 @@ This Java program is a comprehensive software solution designed to streamline an
 
 ## `Prerequisites`
 To run the Airline Reservation Builder, you need to have the following software installed on your machine:
-<li>Java Development Kit (JDK)</li>
+- [Java Development Kit (JDK)](https://www.oracle.com/in/java/technologies/downloads/#jdk20-linux)
 <li>NetBeans IDE (or any other Java IDE of your choice)</li>
 <li>MySQL Server (or any other compatible relational database)</li>
 
