@@ -11,20 +11,19 @@ This Java program is a comprehensive software solution designed to streamline an
 
 ## `Prerequisites`
 To run the Airline Reservation Builder, you need to have the following software installed on your machine:
-<li>Java Development Kit (JDK)</li>
-<li>NetBeans IDE (or any other Java IDE of your choice)</li>
-<li>MySQL Server (or any other compatible relational database)</li>
+- [Java Development Kit (JDK)](https://www.oracle.com/in/java/technologies/downloads/#jdk20-linux)
+- [NetBeans IDE (or any other Java IDE of your choice)](https://netbeans.apache.org/download/index.html)
+- [MySQL Server (or any other compatible relational database)](https://dev.mysql.com/downloads/mysql/)
+- [MySQL-Java-Connector](https://dev.mysql.com/downloads/connector/j/)
 
 ## `Tech Stack Used`
-<li>Java</li>
-<li>MySQL</li>
+- Java
+- MySQL
 
 ## `Installation`
-<li>Clone the repository: https://github.com/riyanachwani/CodeClause_AirlineReservationBuilder.git </li>
-<li>Open the project folder in preferred IDE.</li>
-<li>Set up the database:
-<ol>
-  <li>Create a new MySQL database for the reservation system.</li>
-<li>Configure the database connection and update the connection parameters (URL, username, password) to match your database configuration (in services tab (Ctrl+5))</li>
-</ol>
-<li>Run the project in your IDE.</li>
+- Clone the repository: https://github.com/riyanachwani/CodeClause_AirlineReservationBuilder.git
+- Open the project folder in preferred IDE.
+- Set up the database: <br>
+    1. Create a new MySQL database for the reservation system.
+    2. Configure the database connection and update the connection parameters (URL, username, password) to match your database configuration (in services tab (Ctrl+5))
+    3. Run the project in your IDE.
