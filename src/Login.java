@@ -160,7 +160,7 @@ public class Login extends javax.swing.JFrame {
                     obj.setVisible(true);
                     dispose();
                 } else {
-                    JOptionPane.showMessageDialog(this, "NO");
+                    JOptionPane.showMessageDialog(this, "Email or password entered is incorrect.");
                 }
             } catch (SQLException error) {
                 System.out.println(error.getMessage());

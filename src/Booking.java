@@ -1,5 +1,10 @@
 
 import java.awt.Color;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import javax.swing.JOptionPane;
 
 /*
@@ -363,7 +368,30 @@ public class Booking extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        String f = lbl1.getText().toString();
+        String t = lbl2.getText().toString();
+        String c = lbl5.getText().toString();
+        String ddate = lbl3.getText().toString();
+        String dtime = lbl4.getText().toString();
+        String price = lbl6.getText().toString();
+        if (f == "NIL" || t == "NIL" || c == "NIL" || ddate == "NIL" || dtime == "NIL" || price == "NIL") {
+            JOptionPane.showMessageDialog(this, "Processing is not done correctly. None of the field should be NIL");
+        } else {
+            try {
+                Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/airline", "root", "riya");
+                Statement stmt = con.createStatement();
+                int i = stmt.executeUpdate("Insert into bookedflights(fromCity, toCity, departureDate, departureTime, price, class) values('" + f + "','" + t + "','" + ddate + "','" + dtime + "','" + price + "','" + c + "')");
+                if (i > 0) {
+                    JOptionPane.showMessageDialog(this, "Flight Booked successfully");
+                    CheckFlights obj = new CheckFlights();// obj created for class Login()
+                    obj.setVisible(true); // Open the Second.java window
+                    dispose(); // Close the Frame1.java window        
+                }
+
+            } catch (SQLException error) {
+                System.out.println(error.getMessage());
+            }
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void adultMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_adultMouseClicked
@@ -430,16 +458,24 @@ public class Booking extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Booking.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Booking.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Booking.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Booking.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Booking.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Booking.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Booking.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Booking.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
