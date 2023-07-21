@@ -41,7 +41,6 @@ public class Login extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(814, 528));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
@@ -142,6 +141,7 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+
         String e = email.getText().toString();
         char[] p1 = pswd.getPassword();
         String p = new String(p1);
@@ -152,13 +152,18 @@ public class Login extends javax.swing.JFrame {
             try {
                 Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/airline", "root", "riya");
                 Statement stmt = con.createStatement();
-                ResultSet rs = stmt.executeQuery("Select email,password from signup where email='" + e + "'and password='" + p + "';");
+                ResultSet rs = stmt.executeQuery("Select name,email,password from signup where email='" + e + "'and password='" + p + "';");
 
                 if (rs.next()) {
                     JOptionPane.showMessageDialog(this, "Logged in successfully");
+                    // Get the name from the ResultSet if it's available in the database
+                    String name = rs.getString("name");
                     CheckFlights obj = new CheckFlights();
+                    Booking obj1 = new Booking();
+                    obj1.nlbl.setText(name);
                     obj.setVisible(true);
                     dispose();
+
                 } else {
                     JOptionPane.showMessageDialog(this, "Email or password entered is incorrect.");
                 }
@@ -213,7 +218,7 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField email;
+    public javax.swing.JTextField email;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
@@ -222,6 +227,6 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPasswordField pswd;
+    public javax.swing.JPasswordField pswd;
     // End of variables declaration//GEN-END:variables
 }
