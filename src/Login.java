@@ -159,8 +159,7 @@ public class Login extends javax.swing.JFrame {
                     // Get the name from the ResultSet if it's available in the database
                     String name = rs.getString("name");
                     CheckFlights obj = new CheckFlights();
-                    Booking obj1 = new Booking();
-                    obj1.nlbl.setText(name);
+                    System.out.println(name);
                     obj.setVisible(true);
                     dispose();
 
@@ -177,8 +176,6 @@ public class Login extends javax.swing.JFrame {
         Frame1 obj = new Frame1();
         obj.setVisible(true);
         dispose();
-
-        // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
@@ -218,7 +215,7 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JTextField email;
+    private javax.swing.JTextField email;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
@@ -227,6 +224,6 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
-    public javax.swing.JPasswordField pswd;
+    private javax.swing.JPasswordField pswd;
     // End of variables declaration//GEN-END:variables
 }

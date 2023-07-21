@@ -13,18 +13,12 @@ import javax.swing.table.DefaultTableModel;
  */
 public class CheckFlights extends javax.swing.JFrame {
 
-    private String email;
-    private String password;
-
     /**
      * Creates new form CheckFlights
      */
     public CheckFlights() {
-        this.email = email;
-        this.password = password;
         initComponents();
         showData();
-        System.out.println(email + "" + password);
     }
 
     /**
@@ -388,8 +382,6 @@ public class CheckFlights extends javax.swing.JFrame {
         jDialog1.setVisible(false);
         Booking obj = new Booking();
         int index = tbl.getSelectedRow();
-        String userEmail = email;
-        String userPassword = password;
         DefaultTableModel tblModel = (DefaultTableModel) tbl.getModel();
         String from = tblModel.getValueAt(index, 0).toString();
         String to = tblModel.getValueAt(index, 1).toString();
