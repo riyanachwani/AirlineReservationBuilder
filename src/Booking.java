@@ -284,7 +284,7 @@ public class Booking extends javax.swing.JFrame {
 
         name.setBackground(new java.awt.Color(0, 153, 255));
         name.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
-        name.setForeground(jLabel10.getForeground());
+        name.setForeground(new java.awt.Color(204, 204, 204));
         name.setText("Enter Name");
         name.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -395,13 +395,15 @@ public class Booking extends javax.swing.JFrame {
         String ddate = lbl3.getText().toString();
         String dtime = lbl4.getText().toString();
         String price = lbl6.getText().toString();
+        String name1 = name.getText().toString();
+
         if (f == "NIL" || t == "NIL" || c == "NIL" || ddate == "NIL" || dtime == "NIL" || price == "NIL") {
             JOptionPane.showMessageDialog(this, "Processing is not done correctly. None of the field should be NIL");
         } else {
             try {
                 Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/airline", "root", "riya");
                 Statement stmt = con.createStatement();
-                int i = stmt.executeUpdate("Insert into bookedflights(fromCity, toCity, departureDate, departureTime, price, class) values('" + f + "','" + t + "','" + ddate + "','" + dtime + "','" + price + "','" + c + "')");
+                int i = stmt.executeUpdate("Insert into bookedflights(name, fromCity, toCity, departureDate, departureTime, price, class) values('" + name1 + "','" + f + "','" + t + "','" + ddate + "','" + dtime + "','" + price + "','" + c + "')");
                 if (i > 0) {
                     JOptionPane.showMessageDialog(this, "Flight Booked successfully");
                     CheckFlights obj = new CheckFlights();// obj created for class Login()
@@ -467,7 +469,7 @@ public class Booking extends javax.swing.JFrame {
 
     private void nameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nameMouseClicked
         name.setText("");
-        name.setForeground(Color.black);
+        name.setForeground(Color.white);
     }//GEN-LAST:event_nameMouseClicked
 
     /**
