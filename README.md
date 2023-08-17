@@ -21,7 +21,7 @@ To run the Airline Reservation Builder, you need to have the following software 
 - MySQL
 
 ## `Installation`
-- Clone the repository: https://github.com/riyanachwani/CodeClause_AirlineReservationBuilder.git
+- Clone the repository: https://github.com/riyanachwani/AirlineReservationBuilder.git
 - Open the project folder in preferred IDE.
 - Set up the database: <br>
     1. Create a new MySQL database for the reservation system.
